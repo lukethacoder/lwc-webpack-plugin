@@ -1,0 +1,56 @@
+{
+  "name": "@lukethacoder/lwc-webpack-plugin",
+  "version": "3.0.3",
+  "author": "Luke Secomb",
+  "description": "⚡ An opinionated Webpack plugin for LWC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "prepare": "pnpm build",
+    "dev": "pnpm watch",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/plugin-syntax-decorators": "^7.21.0",
+    "@babel/preset-typescript": "^7.21.4",
+    "@lukethacoder/lwc-module-resolver": "^2.44.0",
+    "@lwc/engine-dom": "^2.44.0",
+    "@lwc/synthetic-shadow": "^2.44.0",
+    "@lwc/wire-service": "^2.44.0",
+    "@types/node": "~18.16.0",
+    "babel-loader": "^8.3.0",
+    "lwc": "2.44.0",
+    "typescript": "~5.0.4",
+    "webpack": "~5.80.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "resolve": "^1.22.2"
+  },
+  "peerDependencies": {
+    "@lwc/engine-dom": "^2.44.0",
+    "@lwc/synthetic-shadow": "^2.44.0",
+    "@lwc/wire-service": "^2.44.0",
+    "lwc": "^2.0.0"
+  },
+  "keywords": [
+    "lwc",
+    "salesforce",
+    "web components",
+    "lightning",
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukethacoder/lwc-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukethacoder/lwc-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/lukethacoder/lwc-webpack-plugin#readme"
+}

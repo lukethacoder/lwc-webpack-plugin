@@ -18,6 +18,7 @@ import { existsSync, readFileSync } from 'fs'
 import noderesolve from 'resolve'
 
 interface PluginConfig {
+  rootDir: string
   modules: any[]
   stylesheetConfig: any
   outputConfig: any
@@ -26,19 +27,22 @@ interface PluginConfig {
 
 const PACKAGE_JSON = 'package.json'
 
-function transformModuleRecordsToIncludes(modulesConfig: any[]): string[] {
+function transformModuleRecordsToIncludes(
+  rootDir,
+  modulesConfig: any[]
+): string[] {
   let modules: ModuleRecord[] = []
 
   const pkgJson = JSON.parse(
-    readFileSync(resolve(process.cwd(), 'package.json'), 'utf8')
+    readFileSync(resolve(rootDir, 'package.json'), 'utf8')
   )
   if (pkgJson.lwc && pkgJson.lwc.modules && pkgJson.lwc.modules.length) {
     modules = pkgJson.lwc.modules
   }
 
-  if (existsSync(resolve(process.cwd(), 'lwc.config.json'))) {
+  if (existsSync(resolve(rootDir, 'lwc.config.json'))) {
     const lwcConfig = JSON.parse(
-      readFileSync(resolve(process.cwd(), 'lwc.config.json'), 'utf8')
+      readFileSync(resolve(rootDir, 'lwc.config.json'), 'utf8')
     )
     if (lwcConfig.modules && lwcConfig.modules.length) {
       modules = lwcConfig.modules
@@ -62,7 +66,7 @@ function transformModuleRecordsToIncludes(modulesConfig: any[]): string[] {
             pkg.main = PACKAGE_JSON
             return pkg
           },
-          basedir: process.cwd(),
+          basedir: rootDir,
         })
         resolved = resolved.slice(0, -PACKAGE_JSON.length)
         records.push(resolved)
@@ -71,13 +75,13 @@ function transformModuleRecordsToIncludes(modulesConfig: any[]): string[] {
         console.log(ignore)
       }
     } else if (module.hasOwnProperty('dir')) {
-      records.push(resolve(process.cwd(), (module as DirModuleRecord).dir))
+      records.push(resolve(rootDir, (module as DirModuleRecord).dir))
     } else if (module.hasOwnProperty('dirs')) {
       ;(module as DirModuleRecord).dirs.forEach((singleDir) => {
-        records.push(resolve(process.cwd(), singleDir))
+        records.push(resolve(rootDir, singleDir))
       })
     } else if (module.hasOwnProperty('alias')) {
-      records.push(resolve(process.cwd(), (module as AliasModuleRecord).path))
+      records.push(resolve(rootDir, (module as AliasModuleRecord).path))
     }
   }
 
@@ -93,6 +97,7 @@ module.exports = class Plugin {
   }
   apply(compiler: Compiler) {
     const {
+      rootDir = process.cwd(),
       modules = [],
       stylesheetConfig = {},
       outputConfig = {},
@@ -136,7 +141,7 @@ module.exports = class Plugin {
 
     compiler.options.module.rules.push({
       test: /\.(js|ts|html|css)$/,
-      include: transformModuleRecordsToIncludes(modules),
+      include: transformModuleRecordsToIncludes(rootDir, modules),
       use: {
         loader: require.resolve('./loader'),
         options: {

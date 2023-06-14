@@ -25,7 +25,7 @@ Note that you must install your own dependencies for `lwc` and `@lukethacoder/lw
 const LwcWebpackPlugin = require('@lukethacoder/lwc-webpack-plugin')
 
 module.exports = {
-    plugins: [new LwcWebpackPlugin()]
+  plugins: [new LwcWebpackPlugin()]
 }
 ```
 
@@ -59,10 +59,8 @@ module.exports = {
 
 The plugin takes also three additional configuration options:
 
--   `rootDir` - defaults to `process.cmd()`
--   `stylesheetConfig`
--   `outputConfig`
+- `rootDir` - defaults to `process.cmd()`
+- `stylesheetConfig`
+- `outputConfig`
 
 These options are 1:1 mappings of the LWC Compiler options, which are documented [here](https://github.com/salesforce/lwc/tree/master/packages/%40lwc/compiler#apis).
-
-Read more about Lightning Web Components [here](https://github.com/muenzpraeger/create-lwc-app).

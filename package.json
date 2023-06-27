@@ -1,6 +1,6 @@
 {
   "name": "@lukethacoder/lwc-webpack-plugin",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "author": "Luke Secomb",
   "description": "⚡ An opinionated Webpack plugin for LWC based on the official @salesforce/lwc-webpack-plugin plugin",
   "main": "dist/index.js",
@@ -18,13 +18,13 @@
   "devDependencies": {
     "@babel/plugin-syntax-decorators": "^7.21.0",
     "@babel/preset-typescript": "^7.21.4",
-    "@lukethacoder/lwc-module-resolver": "^2.49.1",
-    "@lwc/engine-dom": "^2.49.1",
-    "@lwc/synthetic-shadow": "^2.49.1",
-    "@lwc/wire-service": "^2.49.1",
+    "@lukethacoder/lwc-module-resolver": "^3.0.0",
+    "@lwc/engine-dom": "^3.0.0",
+    "@lwc/synthetic-shadow": "^3.0.0",
+    "@lwc/wire-service": "^3.0.0",
     "@types/node": "~18.16.0",
     "babel-loader": "^8.3.0",
-    "lwc": "2.49.1",
+    "lwc": "3.0.0",
     "typescript": "~5.0.4",
     "webpack": "~5.80.0",
     "webpack-merge": "^5.8.0"
@@ -33,10 +33,10 @@
     "resolve": "^1.22.2"
   },
   "peerDependencies": {
-    "@lwc/engine-dom": "^2.0.0",
-    "@lwc/synthetic-shadow": "^2.0.0",
-    "@lwc/wire-service": "^2.0.0",
-    "lwc": "^2.0.0"
+    "@lwc/engine-dom": "^3.0.0",
+    "@lwc/synthetic-shadow": "^3.0.0",
+    "@lwc/wire-service": "^3.0.0",
+    "lwc": "^3.0.0"
   },
   "keywords": [
     "lwc",

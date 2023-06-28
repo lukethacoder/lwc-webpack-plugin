@@ -1,0 +1,10 @@
+{
+  "modules": [
+    { "dir": "./src/modules/playground", "namespace": "playground" },
+    { "dir": "./force-app/main/default/lwc", "namespace": "c" },
+    {
+      "dirs": ["./multi-test/lwc-one/lwc", "./multi-test/lwc-two/lwc"],
+      "namespace": "multi"
+    }
+  ]
+}

@@ -64,7 +64,3 @@ The plugin takes also three additional configuration options:
 - `outputConfig`
 
 These options are 1:1 mappings of the LWC Compiler options, which are documented [here](https://github.com/salesforce/lwc/tree/master/packages/%40lwc/compiler#apis).
-
-## LWC v`2.*.*`
-
-Please use version `3.0.4` of this package if you need to support pre v3 versions of `lwc`

@@ -19,7 +19,7 @@
     }
   },
   "dependencies": {
-    "@lukethacoder/lwc-module-resolver": "^4.0.0",
+    "@lukethacoder/lwc-module-resolver": "^4.0.1",
     "@lukethacoder/lwc-webpack-plugin": "link:../",
     "@lwc/engine-dom": "^4.0.0",
     "lwc": "^4.0.0"

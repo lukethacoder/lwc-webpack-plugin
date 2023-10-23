@@ -5,7 +5,7 @@
     "clean": "rm -rf node_modules __lwr_cache__ site",
     "build": "npx webpack",
     "start": "serve ./dist",
-    "dev": "npx webpack-dev-server --mode development"
+    "dev": "npx webpack serve --mode development"
   },
   "engines": {
     "node": ">=16.0.0 <20"
@@ -19,15 +19,15 @@
     }
   },
   "dependencies": {
-    "@lukethacoder/lwc-module-resolver": "^3.0.0",
+    "@lukethacoder/lwc-module-resolver": "^4.0.0",
     "@lukethacoder/lwc-webpack-plugin": "link:../",
-    "@lwc/engine-dom": "^3.0.0",
-    "lwc": "^3.0.0"
+    "@lwc/engine-dom": "^4.0.0",
+    "lwc": "^4.0.0"
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.3",
-    "serve": "^14.2.0",
-    "webpack": "^5.88.0",
+    "serve": "^14.2.1",
+    "webpack": "~5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }

@@ -20,9 +20,11 @@ import noderesolve from 'resolve'
 interface PluginConfig {
   rootDir: string
   modules: any[]
-  stylesheetConfig: any
   outputConfig: any
-  experimentalDynamicComponent: any
+  enableDynamicComponents: boolean
+  experimentalDynamicComponent: boolean
+  experimentalComplexExpressions: boolean
+  enableLightningWebSecurityTransforms: boolean
 }
 
 const PACKAGE_JSON = 'package.json'
@@ -99,9 +101,11 @@ module.exports = class Plugin {
     const {
       rootDir = process.cwd(),
       modules = [],
-      stylesheetConfig = {},
       outputConfig = {},
-      experimentalDynamicComponent = {},
+      experimentalDynamicComponent = true,
+      enableDynamicComponents = true,
+      experimentalComplexExpressions = false,
+      enableLightningWebSecurityTransforms = false,
     } = this.config || {}
     compiler.hooks.environment.tap('lwc-webpack-plugin', () => {
       const resolverPlugin = new LwcModuleResolverPlugin(modules)
@@ -150,9 +154,11 @@ module.exports = class Plugin {
       use: {
         loader: require.resolve('./loader'),
         options: {
-          stylesheetConfig,
           outputConfig,
           experimentalDynamicComponent,
+          enableDynamicComponents,
+          experimentalComplexExpressions,
+          enableLightningWebSecurityTransforms,
         },
       },
     })

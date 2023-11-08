@@ -1,6 +1,6 @@
 {
   "name": "@lukethacoder/lwc-webpack-plugin",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "author": "Luke Secomb",
   "description": "⚡ An opinionated Webpack plugin for LWC based on the official @salesforce/lwc-webpack-plugin plugin",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
     "@lwc/wire-service": "^4.0.0",
     "@types/node": "~20.8.7",
     "babel-loader": "^9.1.3",
-    "lwc": "4.0.0",
+    "lwc": "4.0.1",
     "typescript": "~5.2.2",
     "webpack": "~5.89.0",
     "webpack-merge": "^5.10.0"

@@ -1,0 +1,8 @@
+<template>
+  <button onclick={handleToggleImport}>Toggle component</button>
+  <template lwc:if={moduleLwc}>
+    <lwc:component
+      lwc:is={moduleLwc}
+    ></lwc:component>
+  </template>
+</template>

@@ -10,8 +10,13 @@ const { getInfoFromPath } = require('./module')
 
 module.exports = function loader(source: any) {
   const { resourcePath, resourceQuery, getOptions } = this
-  const { stylesheetConfig, outputConfig, experimentalDynamicComponent } =
-    getOptions()
+  const {
+    outputConfig,
+    enableDynamicComponents,
+    experimentalDynamicComponent,
+    experimentalComplexExpressions,
+    enableLightningWebSecurityTransforms,
+  } = getOptions()
 
   let info
   try {
@@ -34,9 +39,11 @@ module.exports = function loader(source: any) {
   const { code } = compiler.transformSync(codeTransformed, resourcePath, {
     name: info.name,
     namespace: info.ns,
-    stylesheetConfig,
     outputConfig,
+    enableDynamicComponents,
     experimentalDynamicComponent,
+    experimentalComplexExpressions,
+    enableLightningWebSecurityTransforms,
     scopedStyles,
   })
 

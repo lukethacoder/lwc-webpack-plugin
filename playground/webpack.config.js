@@ -14,6 +14,14 @@ module.exports = {
   plugins: [
     new LwcWebpackPlugin({
       rootDir: './',
+      enableDynamicComponents: true,
+      experimentalDynamicComponent: true,
+      experimentalComplexExpressions: true,
+      options: {
+        enableDynamicComponents: true,
+        experimentalDynamicComponent: true,
+        experimentalComplexExpressions: true,
+      },
     }),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
   ],

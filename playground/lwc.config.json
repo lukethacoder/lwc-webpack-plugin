@@ -1,5 +1,8 @@
 {
   "modules": [
+    {
+      "npm": "lightning-base-components"
+    },
     { "dir": "./src/modules/playground", "namespace": "playground" },
     { "dir": "./force-app/main/default/lwc", "namespace": "c" },
     {
